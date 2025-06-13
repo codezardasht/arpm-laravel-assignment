@@ -12,4 +12,3 @@ Route::get('/orders', [OrderController::class, 'index'])
     ->name('orders.index');
 
 Route::get('/office-employees', [OfficeController::class, 'index']);
-

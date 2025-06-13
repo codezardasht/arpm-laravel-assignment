@@ -1,10 +1,9 @@
 <?php
 
-
 namespace App\Services;
 
-use App\Models\Order;
 use App\Models\CartItem;
+use App\Models\Order;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -19,6 +18,7 @@ class OrderService
         $lastCartItems = $this->getLastCartItems($orders);
 
         $orderData = $this->transformOrders($orders, $lastCartItems);
+
         return $this->sortOrdersByCompletionDate($orderData);
     }
 
@@ -30,14 +30,14 @@ class OrderService
         return Order::with([
             'customer:id,name',
             'items:id,order_id,product_id,price,quantity',
-            'items.product:id,name'
+            'items.product:id,name',
         ])
             ->select([
                 'orders.id',
                 'orders.customer_id',
                 'orders.status',
                 'orders.created_at',
-                'orders.completed_at'
+                'orders.completed_at',
             ])
             ->get();
     }
@@ -59,7 +59,7 @@ class OrderService
     private function transformOrders(Collection $orders, Collection $lastCartItems): Collection
     {
         return $orders->map(function ($order) use ($lastCartItems) {
-            $totalAmount = $order->items->sum(fn($item) => $item->price * $item->quantity);
+            $totalAmount = $order->items->sum(fn ($item) => $item->price * $item->quantity);
 
             return [
                 'order_id' => $order->id,

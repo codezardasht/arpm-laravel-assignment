@@ -10,12 +10,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Order extends Model
 {
     use HasFactory;
+
     public function customer(): belongsTo
     {
         return $this->belongsTo(Customer::class);
     }
 
-    public function items() : HasMany
+    public function items(): HasMany
     {
         return $this->hasMany(OrderItem::class);
     }

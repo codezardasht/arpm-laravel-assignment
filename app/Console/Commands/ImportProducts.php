@@ -26,8 +26,8 @@ class ImportProducts extends Command
      */
     public function handle(SpreadsheetService $service)
     {
-        $this->info("Importing...");
+        $this->info('Importing...');
         $service->processSpreadsheet('fake/path/to/spreadsheet.csv');
-        $this->info("Done.");
+        $this->info('Done.');
     }
 }

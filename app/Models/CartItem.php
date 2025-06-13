@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class CartItem extends Model
 {
     use HasFactory;
-    public function order() : BelongsTo
+
+    public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
