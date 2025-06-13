@@ -1,61 +1,238 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ARPM Laravel Developer Assessment
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel Logo](https://laravel.com/img/logomark.min.svg)
 
-## About Laravel
+## About
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The ARPM Laravel Developer Assessment is a complete Laravel-based project designed to demonstrate backend development skills through five comprehensive tasks. These tasks cover real-world topics such as Eloquent optimization, data visualization, testing, collection manipulation, and Laravel Q&A. Each feature is modular, testable, and production-ready.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Table of Contents
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. [Project Overview](#1-project-overview)
+2. [Features](#2-features)
+3. [Technologies](#3-technologies)
+4. [Installation](#4-installation)
+    - [System Requirements](#41-system-requirements)
+    - [Running Locally](#42-running-locally)
+5. [Testing](#5-testing)
+6. [API Documentation](#6-api-documentation)
+7. [Architecture](#7-architecture)
+8. [Environment Variables](#8-environment-variables)
+9. [Credits](#9-credits)
+10. [License](#10-license)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 1. Project Overview
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+This Laravel project contains 5 developer tasks implemented in a clean architecture:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Task 1: Uniform data generation & cumulative visualization
+- Task 2: Refactored controller & optimized database access
+- Task 3: Service testing with PHPUnit
+- Task 4: Elegant Laravel Collection usage
+- Task 5: Conceptual Q&A in PDF format
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 2. Features
 
-### Premium Partners
+- ✅ Cumulative data chart with Google Sheets
+- ✅ Efficient Eloquent model usage
+- ✅ Fully tested service class with real-life scenarios
+- ✅ Smart collection logic using Laravel's `Collection` API
+- ✅ Clean project structure with service and action classes
+- ✅ Modular routing and controllers
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 3. Technologies
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Framework**: Laravel 12.x
+- **Language**: PHP 8.3
+- **Database**: MySQL
+- **Testing**: PHPUnit
+- **Utilities**: Laravel Artisan, Validator, Job Dispatching
+- **Charting**: Google Sheets
+- **Version Control**: Git & GitHub
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 4. Installation
 
-## Security Vulnerabilities
+### 4.1 System Requirements
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- PHP >= 8.2
+- Composer
+- MySQL or MariaDB
+- Laravel CLI
 
-## License
+### 4.2 Running Locally
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone https://github.com/codezardasht/arpm-laravel-assignment.git
+cd arpm-laravel-assignment
+
+# Install PHP dependencies
+composer install
+
+# Copy .env file and setup database credentials
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+
+# Run migrations and seeders
+php artisan migrate --seed
+
+# Serve the application
+php artisan serve
+```
+
+### 4.3 Running with Docker
+
+```bash
+# Build and start containers
+docker compose up -d --build
+```
+
+After running, access the application at:
+
+- 🌐 http://127.0.0.1:8008/
+- 🐘 phpMyAdmin: http://127.0.0.1:8098/
+
+#### Docker `.env` Configuration:
+
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=arpm-database
+DB_PORT=3306
+DB_DATABASE=arpm_laravel_assessment
+DB_USERNAME=arpm
+DB_PASSWORD=arpm
+```
+
+```bash
+git clone https://github.com/codezardasht/arpm-laravel-assignment.git
+cd arpm-laravel-assignment
+
+# Install PHP dependencies
+composer install
+
+# Copy .env file and setup database credentials
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+
+# Run migrations and seeders
+php artisan migrate --seed
+
+# Serve the application
+php artisan serve
+```
+
+---
+
+## 5. Testing
+
+Run the unit tests with:
+
+```bash
+php artisan test
+```
+
+```bash
+# Run all tests
+docker exec -it arpm-backend php artisan test
+
+# Generate coverage report
+docker exec -it arpm-backend XDEBUG_MODE=coverage php artisan test --coverage
+
+# Run tests in parallel
+docker exec -it arpm-backend php artisan test --parallel
+```
+
+Relevant test file for Task 3:  
+📄 [`SpreadsheetServiceTest.php`](https://github.com/codezardasht/arpm-laravel-assignment/blob/main/tests/Unit/Services/SpreadsheetServiceTest.php)
+
+---
+
+## 6. API Documentation
+
+This assessment contains internal routes used in tasks:
+
+- `GET /orders` — returns optimized order data  
+  ➤ Controller: [`OrderController`](https://github.com/codezardasht/arpm-laravel-assignment/blob/main/app/Http/Controllers/OrderController.php)  
+  ➤ Service: [`OrderService`](https://github.com/codezardasht/arpm-laravel-assignment/blob/main/app/Services/OrderService.php)
+
+- `GET /office-employees` — returns employees grouped by office  
+  ➤ Controller: [`OfficeController`](https://github.com/codezardasht/arpm-laravel-assignment/blob/main/app/Http/Controllers/OfficeController.php)  
+  ➤ Action: [`GetOfficeEmployees`](https://github.com/codezardasht/arpm-laravel-assignment/blob/main/app/Actions/GetOfficeEmployees.php)
+
+---
+
+## 7. Architecture
+
+The application follows Laravel service-action-based structure:
+
+```
+app/
+├── Actions/               # Business logic (e.g., GetOfficeEmployees)
+├── Services/              # Encapsulated service logic (e.g., OrderService)
+├── Http/
+│   └── Controllers/       # API Controllers
+├── Models/                # Eloquent Models
+├── Jobs/                  # Dispatched jobs (e.g., ProcessProductImage)
+├── Tests/                 # PHPUnit Test Cases
+```
+
+- **Actions**: Perform isolated, testable tasks
+- **Services**: Reusable business logic with clean interfaces
+- **Tests**: Validate correctness with `php artisan test`
+
+---
+
+## 8. Environment Variables
+
+Besides Laravel defaults, ensure your `.env` contains:
+
+| Variable      | Description              | Example     |
+|---------------|--------------------------|-------------|
+| APP_ENV       | Application environment  | `local`     |
+| DB_DATABASE   | Database name            | `arpm_test` |
+| DB_USERNAME   | Database user            | `root`      |
+| DB_PASSWORD   | Database password        | `root`      |
+
+
+
+## 9. Credits
+
+- [Zardasht Ismael](https://github.com/codezardasht) — Laravel Developer & Task Author
+
+### Links to Tasks
+
+- **Task 1: Google Sheet**  
+  🔗 [View Sheet](https://docs.google.com/spreadsheets/d/1t3BeHaQlkGzHZPBwem795UuupKh95AY4S6CPNVHw4rI/edit?usp=sharing)
+
+- **Task 2: Controller Refactor**  
+  🔗 [`OrderController`](https://github.com/codezardasht/arpm-laravel-assignment/blob/main/app/Http/Controllers/OrderController.php)  
+  🔗 [`OrderService`](https://github.com/codezardasht/arpm-laravel-assignment/blob/main/app/Services/OrderService.php)
+
+- **Task 3: Unit Test**  
+  🔗 [`SpreadsheetServiceTest`](https://github.com/codezardasht/arpm-laravel-assignment/blob/main/tests/Unit/Services/SpreadsheetServiceTest.php)
+
+- **Task 4: Collections**  
+  🔗 [`OfficeController`](https://github.com/codezardasht/arpm-laravel-assignment/blob/main/app/Http/Controllers/OfficeController.php)  
+  🔗 [`GetOfficeEmployees`](https://github.com/codezardasht/arpm-laravel-assignment/blob/main/app/Actions/GetOfficeEmployees.php)
+
+- **Task 5: Q&A PDF**  
+  📄 `Task5_QA_Answers.pdf`
+
+---
+
+## 11. License
+
+This assessment project is provided for evaluation and educational purposes only. All rights reserved by the author.
+
+© 2025 Zardasht Ismael
